@@ -1,0 +1,26 @@
+{% extends 'core/app_base.html' %}
+{% load static %}
+{% block main_class %}
+  conversation-page
+{% endblock %}
+{% block page_header %}
+  <header class="conversation-header {% block conversation_class %}{% endblock %}">
+    <a class="btn btn-outline" href="{% url 'messaging:inbox' %}">‹ Back</a>
+    <img class="conversation-avatar" src="{% static 'core/images/' %}{{ conversation.image }}" alt="">
+    <div>
+      <h1>{{ conversation.title }}</h1>
+      <p class="muted">{{ conversation.subtitle }}</p>
+    </div>
+    {% if conversation.price %}
+      <strong class="price ms-auto">{{ conversation.price }}</strong>
+    {% endif %}
+  </header>
+{% endblock %}
+{% block content %}
+  <section class="conversation-messages" aria-label="Example conversation">
+    {% for bubble in conversation.bubbles %}
+      {% include 'messaging/components/message_bubble.html' %}
+    {% endfor %}
+  </section>
+  {% include 'messaging/components/composer.html' %}
+{% endblock %}

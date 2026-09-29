@@ -1,0 +1,9 @@
+<div class="message {% if bubble.outgoing %}outgoing{% endif %}">
+  {% if bubble.sender %}
+    <p class="message-sender muted">{{ bubble.sender }}</p>
+  {% endif %}
+  <p class="message-bubble">{{ bubble.text }}</p>
+  {% if bubble.receipt %}
+    <p class="message-receipt muted">{{ bubble.receipt }}</p>
+  {% endif %}
+</div>

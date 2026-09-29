@@ -1,0 +1,5 @@
+{% load static %}
+<div class="directory-item {% if selected %}selected{% endif %}" {% if selected %}aria-current="true"{% endif %}>
+  <img src="{% static 'core/images/' %}{{ group.image }}" alt="">
+  <span>{{ group.name }}</span>
+</div>

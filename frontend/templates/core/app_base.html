@@ -1,0 +1,11 @@
+{% extends 'core/base.html' %}
+{% block body %}
+  {% include 'core/components/sidebar.html' %}
+  <main id="main-content" class="app-main {% block main_class %}{% endblock %}" tabindex="-1">
+    {% block page_header %}
+      {% include 'core/components/page_header.html' %}
+    {% endblock %}
+    {% block content %}
+    {% endblock %}
+  </main>
+{% endblock %}

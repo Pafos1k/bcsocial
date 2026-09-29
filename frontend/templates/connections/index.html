@@ -1,0 +1,19 @@
+{% extends 'core/app_base.html' %}
+{% block page_header %}
+  <header class="page-header">
+    <h1>Connections</h1>
+    <button class="btn btn-gold" type="button" disabled>+ New Connection</button>
+  </header>
+{% endblock %}
+{% block content %}
+  <div class="line-tabs" aria-label="Connection categories">
+    <span class="active">Connections</span>
+    <button type="button" disabled>Requests (2)</button>
+    <button type="button" disabled>Sent Requests (1)</button>
+  </div>
+  <div class="connections-list">
+    {% for person in people %}
+      {% include 'core/components/person_row.html' with show_year=True connected=True %}
+    {% endfor %}
+  </div>
+{% endblock %}

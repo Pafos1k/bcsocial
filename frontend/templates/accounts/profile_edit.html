@@ -1,0 +1,73 @@
+{% extends 'core/app_base.html' %}
+{% load static %}
+{% block page_header %}
+  <header class="page-header">
+    <h1>Edit Profile</h1>
+    <div class="d-flex gap-2">
+      <a class="btn btn-outline" href="{% url 'accounts:profile' %}">Cancel</a>
+      <button class="btn btn-gold" type="button" disabled>Save Changes</button>
+    </div>
+  </header>
+{% endblock %}
+{% block content %}
+  <div class="profile-layout">
+    <aside class="profile-summary edit-photo">
+      <img class="profile-photo" src="{% static 'core/images/' %}{{ profile.photo }}" alt="Gigi Jones">
+      <button class="btn btn-outline-maroon" type="button" disabled>Change Photo</button>
+      <p class="muted">JPG or PNG, up to 5MB</p>
+    </aside>
+    <section class="profile-fields" aria-label="Edit profile">
+      <div class="row g-4">
+        <div class="col-md-6">
+          <label class="eyebrow" for="class-year">
+            Class year
+            <span>— required</span>
+          </label>
+          <select id="class-year" class="form-select" required>
+            <option selected>2027</option>
+          </select>
+        </div>
+        <div class="col-md-6">
+          <span class="eyebrow">
+            Major
+            <span>— required</span>
+          </span>
+          <div class="input-chip-group">
+            {% for major in profile.majors %}
+              <span class="chip chip-maroon">
+                {{ major }}
+                <button type="button" disabled aria-label="Remove {{ major }}">×</button>
+              </span>
+            {% endfor %}
+          </div>
+        </div>
+      </div>
+      <label class="eyebrow" for="bio">
+        Bio
+        <span>— optional</span>
+      </label>
+      <textarea class="form-control" id="bio" rows="2">{{ profile.bio }}</textarea>
+      <h2 class="eyebrow">
+        Interest tags
+        <span>— optional</span>
+      </h2>
+      <div class="chip-row">
+        {% for interest in profile.interests|slice:':3' %}
+          <span class="chip">
+            {{ interest }}
+            <button type="button" disabled aria-label="Remove {{ interest }}">×</button>
+          </span>
+        {% endfor %}
+        <button type="button" class="chip add-tag" disabled>+ Add tag</button>
+      </div>
+      <h2 class="eyebrow">
+        Clubs &amp; eboard title
+        <span>— set from the Clubs page, shown here read-only</span>
+      </h2>
+      <div class="chip-row">
+        <span class="chip chip-neutral">CS Club — VP</span>
+        <span class="chip chip-neutral">Boston College Club Cycling — Member</span>
+      </div>
+    </section>
+  </div>
+{% endblock %}

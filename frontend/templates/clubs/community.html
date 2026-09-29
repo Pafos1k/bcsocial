@@ -1,0 +1,34 @@
+{% extends 'clubs/directory_base.html' %}
+{% load static %}
+{% block subtitle %}
+  Interest groups within BC
+{% endblock %}
+{% block directory_action %}
+  <button class="btn btn-gold create-community" type="button" disabled>Create Community</button>
+{% endblock %}
+{% block directory_detail %}
+  <header class="group-heading">
+    <img class="community-photo" src="{% static 'core/images/image60.png' %}" alt="A24 Film Fans">
+    <div>
+      <h2>A24 Film Fans</h2>
+      <p class="muted">Not an official BC club · 64 BC students</p>
+    </div>
+    <button class="btn btn-gold ms-auto" type="button" disabled>Join Group Chat</button>
+  </header>
+  <p class="group-description">For any BC student who wants to catch a show or talk about one after</p>
+  <h3 class="eyebrow">Upcoming</h3>
+  <article class="community-event">
+    <img src="{% static 'core/images/image113.jpg' %}" alt="Coolidge Corner screening">
+    <div>
+      <h3>Coolidge Corner: 35mm screening, Saturday 7pm</h3>
+      <p class="muted">Posted by Priya Nair · "who's coming, I'll grab a group of seats"</p>
+    </div>
+    <div class="ms-auto text-center">
+      <strong class="price">9</strong>
+      <p class="muted">going</p>
+    </div>
+  </article>
+  <p class="community-note muted">
+    This group already has a chat — Join Group Chat adds you to it in the Club tab of Messages. A brand-new interest group would show Create Group Chat instead.
+  </p>
+{% endblock %}

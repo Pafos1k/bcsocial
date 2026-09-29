@@ -1,0 +1,25 @@
+{% extends 'core/app_base.html' %}
+{% block page_header %}
+{% endblock %}
+{% block content %}
+  <div class="directory-layout">
+    <aside class="directory-rail">
+      <header>
+        <h1>{{ title }}</h1>
+        <p class="muted">
+          {% block subtitle %}
+          {% endblock %}
+        </p>
+      </header>
+      {% for group in groups %}
+        {% include 'clubs/components/directory_item.html' with selected=forloop.first %}
+      {% endfor %}
+      {% block directory_action %}
+      {% endblock %}
+    </aside>
+    <section class="directory-detail">
+      {% block directory_detail %}
+      {% endblock %}
+    </section>
+  </div>
+{% endblock %}

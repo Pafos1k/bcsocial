@@ -1,0 +1,8 @@
+{% load static %}
+<article class="news-card">
+  {% include 'core/components/prototype_image.html' with image=article.image image_class='news-image' %}
+  <div class="card-caption">
+    <h3>{{ article.title }}</h3>
+    <p class="muted">{{ article.meta }}</p>
+  </div>
+</article>

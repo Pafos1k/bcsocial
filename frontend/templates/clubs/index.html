@@ -1,0 +1,44 @@
+{% extends 'clubs/directory_base.html' %}
+{% load static %}
+{% block subtitle %}
+  Registered BC organizations
+{% endblock %}
+{% block directory_detail %}
+  <header class="group-heading">
+    <img src="{% static 'core/images/image44.jpg' %}" alt="CS Club">
+    <div>
+      <h2>CS Club</h2>
+      <p class="muted">112 members · Founded 2014</p>
+    </div>
+    <button class="btn btn-gold ms-auto" type="button" disabled>Join Club Group Chat</button>
+  </header>
+  <p class="group-description">
+    BC's home for everything software: weekly workshops, a fall hackathon, and industry speaker nights. Open to all majors — no experience required.
+  </p>
+  <h3 class="eyebrow">E-board</h3>
+  <div class="row g-3">
+    {% for name, role in officers %}
+      <div class="col-md-4">
+        <div class="officer">
+          <strong>{{ name }}</strong>
+          <p class="muted">{{ role }}</p>
+        </div>
+      </div>
+    {% endfor %}
+  </div>
+  <h3 class="eyebrow mt-4">Upcoming events</h3>
+  <div class="row g-3">
+    <div class="col-md-6">
+      <div class="small-event">
+        <strong>Fall Hackathon signups</strong>
+        <p class="muted">42 going</p>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="small-event">
+        <strong>Resume Workshop w/ Career Center</strong>
+        <p class="muted">28 going</p>
+      </div>
+    </div>
+  </div>
+{% endblock %}

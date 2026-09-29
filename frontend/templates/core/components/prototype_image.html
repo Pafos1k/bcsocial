@@ -1,0 +1,4 @@
+{% load static %}
+<span class="prototype-image {{ image_class }}" data-source="{{ image }}">
+  <img src="{% static 'core/images/' %}{{ image }}" alt="{{ alt|default:'' }}">
+</span>

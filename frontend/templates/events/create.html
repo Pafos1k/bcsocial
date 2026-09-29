@@ -1,0 +1,63 @@
+{% extends 'core/app_base.html' %}
+{% load static %}
+{% block content %}
+  <div class="creation-layout">
+    <section class="creation-preview event-preview" aria-labelledby="preview-title">
+      <h2 id="preview-title" class="eyebrow">Event preview</h2>
+      <img class="preview-image" src="{% static 'core/images/image114.jpg' %}" alt="Hackathon banner">
+      <h3>Fall Hackathon Kickoff</h3>
+      <p class="hosted-by">Hosted by CS Club</p>
+      <span class="chip chip-gold">Open to all BC students</span>
+      <div class="preview-placeholders muted">
+        <p>Date &amp; time</p>
+        <p>Location</p>
+        <p>Description</p>
+      </div>
+    </section>
+    <section class="creation-fields" aria-labelledby="form-title">
+      <h2 id="form-title" class="eyebrow">Post a new event</h2>
+      <label for="event-title">Title</label>
+      <input id="event-title" class="form-control" value="Fall Hackathon Kickoff">
+      <div class="row g-3">
+        <div class="col-sm-6">
+          <label for="event-date">Date &amp; time</label>
+          <input id="event-date" class="form-control" placeholder="Select date & time ▾">
+        </div>
+        <div class="col-sm-6">
+          <label for="event-location">Location</label>
+          <input id="event-location" class="form-control" placeholder="Building & room">
+        </div>
+      </div>
+      <label for="event-description">Description</label>
+      <textarea id="event-description" class="form-control" rows="2" placeholder="What’s happening, what to bring…"></textarea>
+      <label for="hosting-club">Hosting club — leave blank if this isn’t a club event</label>
+      <select id="hosting-club" class="form-select">
+        <option selected>CS Club</option>
+        <option value="">—</option>
+      </select>
+      <fieldset>
+        <legend>
+          Who should attend?
+        </legend>
+        <div class="audience-options">
+          <label>
+            <input type="radio" name="audience" value="all" checked>
+            <span>Open to all BC students</span>
+          </label>
+          <label>
+            <input type="radio" name="audience" value="club">
+            <span>Club members only</span>
+          </label>
+        </div>
+      </fieldset>
+      <span class="form-label">Cover photo — optional</span>
+      <button type="button" class="upload-placeholder" disabled>
+        <img src="{% static 'core/images/image140.png' %}" alt="">
+        Upload photo: hackathon_banner.png uploaded
+      </button>
+      <label for="rsvp-link">RSVP Form Link — optional</label>
+      <input id="rsvp-link" type="url" class="form-control">
+      <button class="btn btn-maroon post-button" type="button" disabled>Post Event</button>
+    </section>
+  </div>
+{% endblock %}

@@ -1,0 +1,71 @@
+{% extends 'core/app_base.html' %}
+{% load static %}
+{% block page_header %}
+{% endblock %}
+{% block content %}
+  <div class="home-layout">
+    <section class="feed" aria-label="Home feed">
+      <header class="page-header">
+        <h1>Home</h1>
+        <span class="muted">Class of 2027 · Computer Science · Economics</span>
+      </header>
+      <div class="category-tabs">
+        <button class="btn btn-gold" type="button" disabled aria-current="true">All</button>
+        <button class="btn btn-outline-gold" type="button" disabled>Events</button>
+        <button class="btn btn-outline-gold" type="button" disabled>Clubs</button>
+        <button class="btn btn-outline-gold" type="button" disabled>Marketplace</button>
+        <button class="btn btn-outline-gold" type="button" disabled>News</button>
+      </div>
+      <article class="feed-post">
+        <img class="avatar" src="{% static 'core/images/image93.jpg' %}" alt="">
+        <div>
+          <p>
+            <strong>UGBC</strong>
+            <span class="muted">is hosting an event · 2h</span>
+          </p>
+          <h2>
+            <a href="{% url 'events:detail' %}">Fall Concert — Friday, 8:00 PM, Conte Forum</a>
+          </h2>
+          <a href="{% url 'events:detail' %}">
+            {% include 'core/components/prototype_image.html' with image='image46.png' image_class='feed-banner' alt='BC Fall Concert' %}
+          </a>
+          <div class="d-flex align-items-center gap-4 mt-2">
+            <span class="muted">42 going</span>
+            <button class="btn btn-gold btn-small" type="button" disabled>RSVP</button>
+          </div>
+        </div>
+      </article>
+      <article class="feed-post">
+        <img class="avatar" src="{% static 'core/images/image44.jpg' %}" alt="">
+        <div>
+          <p>
+            <strong>CS Club</strong>
+            <span class="muted">posted · 5h</span>
+          </p>
+          <h2>Fall Hackathon signups are open — teams of 2-4</h2>
+        </div>
+      </article>
+      <article class="feed-post">
+        <img class="avatar" src="{% static 'core/images/image39.png' %}" alt="">
+        <a class="d-flex align-items-center gap-3" href="{% url 'messaging:marketplace' %}">
+          <img class="feed-product" src="{% static 'core/images/image29.jpg' %}" alt="Mini-fridge">
+          <div>
+            <strong>Marketplace</strong>
+            <h2 class="mt-2">Mini-fridge, barely used — $40</h2>
+            <p class="muted">Posted 3h ago</p>
+          </div>
+        </a>
+      </article>
+    </section>
+    <aside class="suggestions">
+      <h2 class="eyebrow">Suggested for you</h2>
+      {% for person in people %}
+        {% include 'core/components/person_row.html' with suggested=True show_year=True %}
+      {% endfor %}
+      <h2 class="eyebrow suggested-clubs">Suggested clubs</h2>
+      <p>Boston College Club Cycling</p>
+      <p>Investment Club</p>
+      <p>Filmmakers Guild</p>
+    </aside>
+  </div>
+{% endblock %}

@@ -1,0 +1,43 @@
+{% extends 'core/app_base.html' %}
+{% load static %}
+{% block content %}
+  <div class="profile-layout">
+    <aside class="profile-summary">
+      <img class="profile-photo" src="{% static 'core/images/' %}{{ profile.photo }}" alt="Gigi Jones">
+      <h2>{{ profile.name }}</h2>
+      <p class="muted">{{ profile.email }}</p>
+      <a class="btn btn-gold" href="{% url 'accounts:edit' %}">Edit Profile</a>
+      <h3 class="eyebrow clubs-label">Clubs</h3>
+      {% for name, role in profile.clubs %}
+        <div class="club-role">
+          <strong>{{ name }}</strong>
+          <span class="{% if role != 'Member' %}role-badge{% else %}muted{% endif %}">{{ role }}</span>
+        </div>
+      {% endfor %}
+    </aside>
+    <section class="profile-fields" aria-label="Profile details">
+      <div class="row g-4">
+        <div class="col-md-6">
+          <h3 class="eyebrow">Class year</h3>
+          <p class="field-value">{{ profile.year }}</p>
+        </div>
+        <div class="col-md-6">
+          <h3 class="eyebrow">Major</h3>
+          <div class="chip-row">
+            {% for major in profile.majors %}
+              <span class="chip chip-outline">{{ major }}</span>
+            {% endfor %}
+          </div>
+        </div>
+      </div>
+      <h3 class="eyebrow">Bio</h3>
+      <p>{{ profile.bio }}</p>
+      <h3 class="eyebrow">Interest tags</h3>
+      <div class="chip-row">
+        {% for interest in profile.interests %}
+          <span class="chip">{{ interest }}</span>
+        {% endfor %}
+      </div>
+    </section>
+  </div>
+{% endblock %}

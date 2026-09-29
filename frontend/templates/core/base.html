@@ -1,0 +1,17 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <link rel="icon" href="data:,">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{{ title }} | BC Social</title>
+    <link rel="stylesheet" href="{% static 'vendor/bootstrap/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'core/css/styles.css' %}">
+  </head>
+  <body class="{% block body_class %}{% endblock %}">
+    <a class="skip-link" href="#main-content">Skip to content</a>
+    {% block body %}
+    {% endblock %}
+  </body>
+</html>

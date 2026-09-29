@@ -1,0 +1,6 @@
+<header class="page-header">
+  <h1>{{ title }}</h1>
+  {% if action_url %}
+    <a class="btn {{ action_class|default:'btn-maroon' }}" href="{% url action_url %}">{{ action_label }}</a>
+  {% endif %}
+</header>

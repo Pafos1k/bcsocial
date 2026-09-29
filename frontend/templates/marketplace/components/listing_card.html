@@ -1,0 +1,14 @@
+{% load static %}
+<article class="listing-card position-relative">
+  <img src="{% static 'core/images/' %}{{ listing.image }}" alt="{{ listing.title }}">
+  <div class="card-caption d-flex justify-content-between gap-2">
+    <h2>
+      {% if listing.url %}
+        <a class="stretched-link" href="{% url listing.url %}">{{ listing.title }}</a>
+      {% else %}
+        {{ listing.title }}
+      {% endif %}
+    </h2>
+    <strong class="price">{{ listing.price }}</strong>
+  </div>
+</article>

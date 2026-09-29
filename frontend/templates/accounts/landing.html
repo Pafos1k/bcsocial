@@ -1,0 +1,24 @@
+{% extends 'core/base.html' %}
+{% load static %}
+{% block body_class %}
+  landing-page
+{% endblock %}
+{% block body %}
+  <main id="main-content" class="landing-layout" tabindex="-1">
+    <section class="welcome-panel">
+      <div>
+        <span class="brand-mark">BC</span>
+        <h1>Welcome to BC Social.</h1>
+      </div>
+    </section>
+    <section class="signin-panel" aria-labelledby="signin-title">
+      <div>
+        <h2 id="signin-title">Sign in</h2>
+        <a class="btn btn-gold signin-button" href="{% url 'home' %}">
+          <img src="{% static 'core/images/image1.png' %}" alt="">
+          Sign in with BC Email
+        </a>
+      </div>
+    </section>
+  </main>
+{% endblock %}

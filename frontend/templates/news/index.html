@@ -1,0 +1,35 @@
+{% extends 'core/app_base.html' %}
+{% block content %}
+  <div class="search-toolbar news-toolbar">
+    {% include 'core/components/search_bar.html' with label='Search news' placeholder='Search news…' %}
+    <div class="category-tabs">
+      <button class="btn btn-gold" type="button" disabled aria-current="true">All</button>
+      <button class="btn btn-outline" type="button" disabled>Academics</button>
+      <button class="btn btn-outline" type="button" disabled>Sports</button>
+      <button class="btn btn-outline" type="button" disabled>Campus Life</button>
+      <button class="btn btn-outline" type="button" disabled>Local</button>
+    </div>
+  </div>
+  <div class="browse-content news-content">
+    <section>
+      <h2 class="eyebrow">Boston College</h2>
+      <div class="row g-3">
+        {% for article in bc_news %}
+          <div class="col-md-4">
+            {% include 'news/components/news_card.html' %}
+          </div>
+        {% endfor %}
+      </div>
+    </section>
+    <section class="mt-4">
+      <h2 class="eyebrow">Today</h2>
+      <div class="row g-3">
+        {% for article in today_news %}
+          <div class="col-md-4">
+            {% include 'news/components/news_card.html' %}
+          </div>
+        {% endfor %}
+      </div>
+    </section>
+  </div>
+{% endblock %}
