@@ -1,0 +1,31 @@
+{% extends 'core/app_base.html' %}
+{% block page_header %}
+  {% include 'core/components/page_header.html' with action_url='events:create' action_label='+ New Event' %}
+{% endblock %}
+{% block content %}
+  <div class="search-toolbar">
+    {% include 'core/components/search_bar.html' with label='Search events' placeholder='Search events — “hackathon”, “concert”…' filter=True %}
+  </div>
+  <div class="browse-content">
+    <section>
+      <h2 class="eyebrow">Your clubs</h2>
+      <div class="row g-3">
+        {% for event in club_events %}
+          <div class="col-md-4">
+            {% include 'events/components/event_card.html' %}
+          </div>
+        {% endfor %}
+      </div>
+    </section>
+    <section class="mt-4">
+      <h2 class="eyebrow">Events on campus</h2>
+      <div class="row g-3">
+        {% for event in campus_events %}
+          <div class="col-md-4">
+            {% include 'events/components/event_card.html' %}
+          </div>
+        {% endfor %}
+      </div>
+    </section>
+  </div>
+{% endblock %}

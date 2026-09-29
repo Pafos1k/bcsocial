@@ -1,0 +1,16 @@
+{% load static %}
+<div class="person-row">
+  <img class="avatar" src="{% static 'core/images/' %}{{ person.image }}" alt="">
+  <span class="person-name">
+    {{ person.name }}
+    {% if show_year %}
+      '{{ person.year }}
+    {% endif %}
+  </span>
+  {% if suggested %}
+    <button class="btn btn-small btn-outline-maroon ms-auto" type="button" disabled>Add</button>
+  {% endif %}
+  {% if connected %}
+    <span class="muted ms-auto connection-date">Connected Sept 2026</span>
+  {% endif %}
+</div>

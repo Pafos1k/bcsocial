@@ -1,0 +1,14 @@
+{% extends 'core/app_base.html' %}
+{% block page_header %}
+  {% include 'core/components/page_header.html' with action_url='marketplace:create' action_label='+ New Listing' %}
+{% endblock %}
+{% block content %}
+  <div class="search-toolbar">
+    {% include 'core/components/search_bar.html' with label='Search listings' placeholder='Search listings — “mini fridge”, “desk”…' filter=True %}
+  </div>
+  <div class="browse-content marketplace-grid">
+    {% for listing in listings %}
+      {% include 'marketplace/components/listing_card.html' %}
+    {% endfor %}
+  </div>
+{% endblock %}

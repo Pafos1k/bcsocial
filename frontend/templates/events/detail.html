@@ -1,0 +1,33 @@
+{% extends 'core/app_base.html' %}
+{% load static %}
+{% block content %}
+  <div class="event-detail-layout">
+    <article class="event-detail">
+      {% include 'core/components/prototype_image.html' with image='image46.png' image_class='concert-banner' alt='BC Fall Concert' %}
+      <h2>UGBC Fall Concert</h2>
+      <div class="event-meta">
+        <span>
+          <img src="{% static 'core/images/image129.png' %}" alt="">
+          Friday, Oct 3 · 8:00 PM
+        </span>
+        <span>
+          <img src="{% static 'core/images/image130.png' %}" alt="">
+          Conte Forum
+        </span>
+      </div>
+      <p>
+        Annual UGBC-hosted concert to kick off the fall semester — student performers, food trucks, and a surprise headliner. Open to all BC students, RSVP appreciated for headcount.
+      </p>
+    </article>
+    <aside class="attendees">
+      <h3 class="eyebrow">Connections going (3)</h3>
+      {% for person in people %}
+        {% include 'core/components/person_row.html' %}
+      {% endfor %}
+      <button type="button" class="btn btn-gold rsvp-button" disabled>
+        <img src="{% static 'core/images/image128.png' %}" alt="">
+        RSVP — I'm going
+      </button>
+    </aside>
+  </div>
+{% endblock %}

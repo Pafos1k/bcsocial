@@ -1,0 +1,68 @@
+{% load static %}
+<aside class="sidebar" aria-label="BC Social navigation">
+  <a class="brand-mark" href="{% url 'home' %}" aria-label="BC Social home">BC</a>
+  <nav aria-label="Main navigation">
+    <a class="rail-link {% if section == 'home' %}is-active{% endif %}" href="{% url 'home' %}" aria-label="Home" title="Home" {% if section == 'home' %}aria-current="page"{% endif %}>
+      {% if section == 'home' %}
+        <img src="{% static 'core/images/image24.png' %}" alt="">
+      {% else %}
+        <img src="{% static 'core/images/image14.png' %}" alt="">
+      {% endif %}
+    </a>
+    <button class="rail-link" type="button" disabled aria-label="Search (prototype only)" title="Search (prototype only)">
+      <img src="{% static 'core/images/image6.png' %}" alt="">
+    </button>
+    <a class="rail-link {% if section == 'clubs' %}is-active{% endif %}" href="{% url 'clubs:index' %}" aria-label="Clubs" title="Clubs" {% if section == 'clubs' %}aria-current="page"{% endif %}>
+      {% if section == 'clubs' %}
+        <img src="{% static 'core/images/image41.png' %}" alt="">
+      {% else %}
+        <img src="{% static 'core/images/image16.png' %}" alt="">
+      {% endif %}
+    </a>
+    <a class="rail-link {% if section == 'community' %}is-active{% endif %}" href="{% url 'community' %}" aria-label="Community" title="Community" {% if section == 'community' %}aria-current="page"{% endif %}>
+      {% if section == 'community' %}
+        <img src="{% static 'core/images/image49.png' %}" alt="">
+      {% else %}
+        <img src="{% static 'core/images/image5.png' %}" alt="">
+      {% endif %}
+    </a>
+    <a class="rail-link {% if section == 'connections' %}is-active{% endif %}" href="{% url 'connections:index' %}" aria-label="Connections" title="Connections" {% if section == 'connections' %}aria-current="page"{% endif %}>
+      {% if section == 'connections' %}
+        <img src="{% static 'core/images/image61.png' %}" alt="">
+      {% else %}
+        <img src="{% static 'core/images/image2.png' %}" alt="">
+      {% endif %}
+    </a>
+    <a class="rail-link {% if section == 'messages' %}is-active{% endif %}" href="{% url 'messaging:inbox' %}" aria-label="Messages" title="Messages" {% if section == 'messages' %}aria-current="page"{% endif %}>
+      {% if section == 'messages' %}
+        <img src="{% static 'core/images/image76.png' %}" alt="">
+      {% else %}
+        <img src="{% static 'core/images/image3.png' %}" alt="">
+      {% endif %}
+    </a>
+    <a class="rail-link {% if section == 'events' %}is-active{% endif %}" href="{% url 'events:index' %}" aria-label="Events" title="Events" {% if section == 'events' %}aria-current="page"{% endif %}>
+      {% if section == 'events' %}
+        <img src="{% static 'core/images/image115.png' %}" alt="">
+      {% else %}
+        <img src="{% static 'core/images/image10.png' %}" alt="">
+      {% endif %}
+    </a>
+    <a class="rail-link {% if section == 'marketplace' %}is-active{% endif %}" href="{% url 'marketplace:index' %}" aria-label="Marketplace" title="Marketplace" {% if section == 'marketplace' %}aria-current="page"{% endif %}>
+      {% if section == 'marketplace' %}
+        <img src="{% static 'core/images/image153.png' %}" alt="">
+      {% else %}
+        <img src="{% static 'core/images/image4.png' %}" alt="">
+      {% endif %}
+    </a>
+    <a class="rail-link {% if section == 'news' %}is-active{% endif %}" href="{% url 'news:index' %}" aria-label="News" title="News" {% if section == 'news' %}aria-current="page"{% endif %}>
+      {% if section == 'news' %}
+        <img src="{% static 'core/images/image177.png' %}" alt="">
+      {% else %}
+        <img src="{% static 'core/images/image9.png' %}" alt="">
+      {% endif %}
+    </a>
+  </nav>
+  <a class="rail-profile" href="{% url 'accounts:profile' %}" aria-label="Your profile" title="Profile" {% if section == 'profile' %}aria-current="page"{% endif %}>
+    <img src="{% static 'core/images/image33.png' %}" alt="Gigi Jones">
+  </a>
+</aside>

@@ -1,0 +1,46 @@
+{% extends 'core/app_base.html' %}
+{% load static %}
+{% block page_header %}
+  <header class="page-header">
+    <h1>Messages</h1>
+    <div class="d-flex gap-2">
+      <button class="btn btn-outline" type="button" disabled>Unread</button>
+      <button class="btn btn-outline" type="button" disabled>Favorites</button>
+      <button class="btn btn-gold" type="button" disabled>+ New Chat</button>
+    </div>
+  </header>
+{% endblock %}
+{% block content %}
+  <div class="line-tabs" aria-label="Message categories">
+    <span class="active">Individual</span>
+    <a href="{% url 'messaging:club' %}" title="View the prototype club conversation">Club</a>
+    <a href="{% url 'messaging:marketplace' %}" title="View the prototype marketplace conversation">Marketplace</a>
+    <button type="button" disabled>Requests</button>
+  </div>
+  <div class="inbox-list">
+    {% for person in people %}
+      <div class="inbox-row position-relative">
+        <img class="avatar" src="{% static 'core/images/' %}{{ person.image }}" alt="">
+        <div>
+          {% if forloop.first %}
+            <a class="person-name stretched-link" href="{% url 'messaging:individual' %}">{{ person.name }}</a>
+            <p>yeah! already RSVPed, see you there</p>
+          {% else %}
+            <strong>{{ person.name }}</strong>
+            <p>You: sounds good, see you then</p>
+          {% endif %}
+        </div>
+        <span class="muted ms-auto">
+          {% if forloop.first %}
+            2m
+          {% else %}
+            1d
+          {% endif %}
+        </span>
+        <button class="favorite-button position-relative z-2" type="button" disabled aria-label="Favorite {{ person.name }} conversation">
+          <img src="{% if forloop.first %}{% static 'core/images/image83.png' %}{% else %}{% static 'core/images/image84.png' %}{% endif %}" alt="">
+        </button>
+      </div>
+    {% endfor %}
+  </div>
+{% endblock %}

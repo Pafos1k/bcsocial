@@ -1,0 +1,22 @@
+{% load static %}
+<article class="event-card position-relative">
+  <div class="event-cover {{ event.tone }}">
+    {% if event.image %}
+      {% include 'core/components/prototype_image.html' with image=event.image image_class='event-image' %}
+    {% endif %}
+    <div class="date-badge">
+      <span>{{ event.month }}</span>
+      <strong>{{ event.day }}</strong>
+    </div>
+  </div>
+  <div class="card-caption">
+    <h3>
+      {% if event.url %}
+        <a class="stretched-link" href="{% url event.url %}">{{ event.title }}</a>
+      {% else %}
+        {{ event.title }}
+      {% endif %}
+    </h3>
+    <p class="muted">{{ event.meta }}</p>
+  </div>
+</article>

@@ -1,0 +1,11 @@
+{% load static %}
+<div class="search-control">
+  <img src="{% static 'core/images/image120.png' %}" alt="">
+  <input class="form-control" type="search" aria-label="{{ label }}" placeholder="{{ placeholder }}">
+</div>
+{% if filter %}
+  <button class="btn btn-outline filter-button" type="button" disabled>
+    <img src="{% static 'core/images/image116.png' %}" alt="">
+    Filter
+  </button>
+{% endif %}
