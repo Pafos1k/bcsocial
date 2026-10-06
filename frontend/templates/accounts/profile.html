@@ -3,7 +3,7 @@
 {% block content %}
   <div class="profile-layout">
     <aside class="profile-summary">
-      <img class="profile-photo" src="{% static 'core/images/' %}{{ profile.photo }}" alt="Gigi Jones">
+      <span class="profile-photo avatar-blank"></span>
       <h2>{{ profile.name }}</h2>
       <p class="muted">{{ profile.email }}</p>
       <a class="btn btn-gold" href="{% url 'accounts:edit' %}">Edit Profile</a>

@@ -20,7 +20,7 @@
   <div class="inbox-list">
     {% for person in people %}
       <div class="inbox-row position-relative">
-        <img class="avatar" src="{% static 'core/images/' %}{{ person.image }}" alt="">
+        <span class="avatar avatar-blank"></span>
         <div>
           {% if forloop.first %}
             <a class="person-name stretched-link" href="{% url 'messaging:individual' %}">{{ person.name }}</a>

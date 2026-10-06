@@ -6,7 +6,7 @@
 {% block page_header %}
   <header class="conversation-header {% block conversation_class %}{% endblock %}">
     <a class="btn btn-outline" href="{% url 'messaging:inbox' %}">‹ Back</a>
-    <img class="conversation-avatar" src="{% static 'core/images/' %}{{ conversation.image }}" alt="">
+    {% if conversation.is_person %}<span class="conversation-avatar avatar-blank"></span>{% else %}<img class="conversation-avatar" src="{% static 'core/images/' %}{{ conversation.image }}" alt="">{% endif %}
     <div>
       <h1>{{ conversation.title }}</h1>
       <p class="muted">{{ conversation.subtitle }}</p>

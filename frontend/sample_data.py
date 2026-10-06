@@ -3,7 +3,7 @@
 These are display values, not models. Image names match the original PPTX media.
 """
 PROFILE = {
-    "name": "Gigi Jones", "email": "jeneen.jones@bc.edu", "year": "2027",
+    "name": "BC Student", "email": "student@bc.edu", "year": "2027",
     "photo": "image12.png",
     "bio": "Senior studying CS + Econ. Always down for pickup soccer or a coffee chat about internships.",
     "majors": ["Computer Science", "Economics"],
@@ -11,18 +11,24 @@ PROFILE = {
     "clubs": [("CS Club", "VP"), ("Boston College Club Cycling", "Member"), ("Investment Club", "Member")],
 }
 CONNECTIONS = [
-    {"name": "Jack Mullen", "year": "27", "image": "image36.jpg"},
-    {"name": "Anna Cortez", "year": "27", "image": "image67.jpg"},
-    {"name": "Sam Tristan", "year": "28", "image": "image143.jpg"},
+    {"name": "Walter Waverly", "year": "27", "image": "image36.jpg"},
+    {"name": "Connor Kim", "year": "27", "image": "image67.jpg"},
+    {"name": "Savvas Nicolaou", "year": "28", "image": "image143.jpg"},
 ]
-SUGGESTED_PEOPLE = [{"name": "Priya Nair", "year": "27", "image": "image30.jpg"}, CONNECTIONS[0]]
+SUGGESTED_PEOPLE = [
+    {"name": "Walter Waverly", "year": "27"},
+    {"name": "Connor Kim", "year": "27"},
+    {"name": "Savvas Nicolaou", "year": "27"},
+    {"name": "Teddy Eskander", "year": "27"},
+    {"name": "Vlad Hoila", "year": "27"},
+]
 CLUBS = [
     {"name": "CS Club", "image": "image44.jpg"},
     {"name": "Boston College Club Cycling", "image": "image54.png"},
     {"name": "Investment Club", "image": "image59.jpg"},
     {"name": "Filmmakers Guild", "image": "image45.png"},
 ]
-EBOARD = [("Anna Cortez", "President"), ("Marco Diaz", "Co-President"), ("Maria Dunphy", "Vice President")]
+EBOARD = [("Connor Kim", "President"), ("Teddy Eskander", "Co-President"), ("Vlad Hoila", "Vice President")]
 COMMUNITIES = [
     {"name": "A24 Film Fans", "image": "image60.png"},
     {"name": "Boston Runners", "image": "image69.jpg"},
@@ -58,12 +64,12 @@ TODAY_NEWS = [
 ]
 CONVERSATIONS = {
     "individual": {
-        "title": "Jack Mullen '27", "subtitle": "Connection since Sept 2026", "image": "image36.jpg", "placeholder": "Write a message…",
+        "title": "Walter Waverly '27", "subtitle": "Connection since Sept 2026", "is_person": True, "placeholder": "Write a message…",
         "bubbles": [{"text": "hey are you going to the concert friday?"}, {"text": "yeah! already RSVPed, see you there", "outgoing": True, "receipt": "Read · 2:14 PM"}],
     },
     "club": {
         "title": "CS Club — Fall Hackathon", "subtitle": "18 members · Club group chat", "image": "image44.jpg", "placeholder": "Message the group…",
-        "bubbles": [{"sender": "Anna Cortez (President)", "text": "team signups close Thursday at midnight!"}, {"sender": "Jack Mullen", "text": "can it be a team of 3, or does it have to be 4?"}, {"text": "3 is fine, 2-4 is the range", "outgoing": True}],
+        "bubbles": [{"sender": "Connor Kim (President)", "text": "team signups close Thursday at midnight!"}, {"sender": "Walter Waverly", "text": "can it be a team of 3, or does it have to be 4?"}, {"text": "3 is fine, 2-4 is the range", "outgoing": True}],
     },
     "marketplace": {
         "title": "Mini-Fridge, barely used", "subtitle": "Listed by You", "image": "image29.jpg", "price": "$40", "placeholder": "Write a message…",

@@ -50,7 +50,7 @@ def messages(request):
 
 @require_GET
 def message_individual(request):
-    return _page(request, "messaging/individual.html", "Jack Mullen", "messages", conversation=samples.CONVERSATIONS["individual"])
+    return _page(request, "messaging/individual.html", "Walter Waverly", "messages", conversation=samples.CONVERSATIONS["individual"])
 
 
 @require_GET
