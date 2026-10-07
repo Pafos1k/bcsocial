@@ -7,6 +7,10 @@
       <h2>{{ profile.name }}</h2>
       <p class="muted">{{ profile.email }}</p>
       <a class="btn btn-gold" href="{% url 'accounts:edit' %}">Edit Profile</a>
+      <form method="post" action="{% url 'account_logout' %}" class="mt-2">
+        {% csrf_token %}
+        <button class="btn btn-outline-maroon btn-small" type="submit">Sign out</button>
+      </form>
       <h3 class="eyebrow clubs-label">Clubs</h3>
       {% for name, role in profile.clubs %}
         <div class="club-role">

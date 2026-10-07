@@ -1,5 +1,6 @@
 """GET-only prototype pages; feature templates keep stable, feature-owned paths."""
-from django.shortcuts import render
+from django.contrib.auth.decorators import login_not_required
+from django.shortcuts import redirect, render
 from django.views.decorators.http import require_GET
 from . import sample_data as samples
 
@@ -8,19 +9,27 @@ def _page(request, template, title, section, **context):
     return render(request, template, {"title": title, "section": section, **context})
 
 
+@login_not_required
 @require_GET
 def landing(request):
+    if request.user.is_authenticated:
+        return redirect("home")
     return _page(request, "accounts/landing.html", "Welcome", "landing")
+
+
+def _signed_in_profile(user):
+    """Sample profile details with the signed-in student's real name and email."""
+    return {**samples.PROFILE, "name": user.get_full_name() or user.email, "email": user.email}
 
 
 @require_GET
 def profile(request):
-    return _page(request, "accounts/profile.html", "Profile", "profile", profile=samples.PROFILE)
+    return _page(request, "accounts/profile.html", "Profile", "profile", profile=_signed_in_profile(request.user))
 
 
 @require_GET
 def profile_edit(request):
-    return _page(request, "accounts/profile_edit.html", "Edit Profile", "profile", profile=samples.PROFILE)
+    return _page(request, "accounts/profile_edit.html", "Edit Profile", "profile", profile=_signed_in_profile(request.user))
 
 
 @require_GET

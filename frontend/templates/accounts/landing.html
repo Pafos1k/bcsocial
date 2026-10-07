@@ -1,5 +1,5 @@
 {% extends 'core/base.html' %}
-{% load static %}
+{% load static socialaccount %}
 {% block body_class %}
   landing-page
 {% endblock %}
@@ -14,7 +14,10 @@
     <section class="signin-panel" aria-labelledby="signin-title">
       <div>
         <h2 id="signin-title">Sign in</h2>
-        <a class="btn btn-gold signin-button" href="{% url 'home' %}">
+        {% for message in messages %}
+          <p class="alert alert-danger" role="alert">{{ message }}</p>
+        {% endfor %}
+        <a class="btn btn-gold signin-button" href="{% provider_login_url 'google' %}">
           <img src="{% static 'core/images/image1.png' %}" alt="">
           Sign in with BC Email
         </a>
